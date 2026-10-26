@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS Beauty & Fashions | Luxury Salon, Bridal & Bespoke Styling</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FDF8EC',
+                            300: '#E2C285',
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#A38118',
+                        },
+                        blush: {
+                            50: '#FFF5F6',
+                            100: '#FFEBF0',
+                            300: '#F9A8BD',
+                            500: '#E86F88',
+                        },
+                        charcoal: {
+                            800: '#18181B',
+                            900: '#0F0F12',
+                            950: '#09090B',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F0F12;
+            color: #E4E4E7;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF1CB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-gradient {
+            border-image: linear-gradient(to right, #D4AF37, #E86F88) 1;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-card-hover {
+            transition: all 0.3s ease;
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-charcoal-900 text-zinc-200 antialiased selection:bg-gold-400 selection:text-charcoal-950">
+
+    <!-- Top Promo Banner -->
+    <div id="promoBanner" class="bg-gradient-to-r from-gold-600 via-blush-500 to-gold-600 text-charcoal-950 font-semibold text-xs md:text-sm py-2 px-4 text-center flex justify-between items-center z-50 relative">
+        <div class="mx-auto flex items-center space-x-2">
+            <span class="bg-charcoal-950 text-gold-300 text-xs px-2 py-0.5 rounded-full font-mono uppercase tracking-wider">Special Offer</span>
+            <span>Get <strong>15% OFF</strong> on your first studio or at-home appointment! Use Code: <strong class="underline decoration-dotted">PSSGLAM15</strong></span>
+        </div>
+        <button onclick="document.getElementById('promoBanner').remove()" class="text-charcoal-950 hover:text-white transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-charcoal-900/90 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-blush-500 flex items-center justify-center shadow-lg shadow-gold-500/10">
+                    <span class="font-serif font-bold text-charcoal-950 text-xl tracking-tighter">PSS</span>
+                </div>
+                <div>
+                    <span class="font-serif text-xl md:text-2xl font-bold tracking-wide text-white">PSS <span class="gold-gradient-text">BEAUTY</span></span>
+                    <span class="block text-[10px] uppercase tracking-widest text-zinc-400 font-sans">& Fashions</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-300">
+                <a href="#about" class="hover:text-gold-400 transition-colors">Why PSS</a>
+                <a href="#calculator" class="hover:text-gold-400 transition-colors">Services & Pricing</a>
+                <a href="#lookbook" class="hover:text-gold-400 transition-colors">Lookbook</a>
+                <a href="#reviews" class="hover:text-gold-400 transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Nav Actions -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="https://wa.me/919876543210?text=Hello%20PSS%20Beauty%2C%20I%20would%20like%20to%20inquire%20about%20your%20services!" target="_blank" class="p-2.5 rounded-full bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-all border border-emerald-500/20" title="Chat on WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+                <button onclick="openBookingModal()" class="bg-gradient-to-r from-gold-400 to-gold-600 hover:from-gold-300 hover:to-gold-500 text-charcoal-950 font-bold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-gold-500/20 transition-all hover:scale-105">
+                    Book Appointment
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-zinc-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars-staggered" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-charcoal-950 border-b border-zinc-800 px-6 py-6 space-y-4">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-gold-400 font-medium py-2">Why PSS</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-gold-400 font-medium py-2">Services & Pricing</a>
+            <a href="#lookbook" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-gold-400 font-medium py-2">Lookbook</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-gold-400 font-medium py-2">Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-gold-400 font-medium py-2">Contact</a>
+            <div class="pt-4 border-t border-zinc-800 flex flex-col gap-3">
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-gradient-to-r from-gold-400 to-gold-600 text-charcoal-950 font-bold text-center py-3 rounded-xl">
+                    Book Appointment
+                </button>
+                <a href="https://wa.me/919876543210" target="_blank" class="w-full text-center py-2.5 rounded-xl border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 font-medium flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Quick WhatsApp Inquiry
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
+        <!-- Background Decorative Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blush-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-zinc-800/80 border border-gold-500/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gold-300">
+                    <i class="fa-solid fa-sparkles text-gold-400"></i>
+                    <span>Luxury Salon • Bridal Studio • Bespoke Styling</span>
+                </div>
+                
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+                    Elevate Your Elegance with <span class="gold-gradient-text block mt-1">PSS Beauty & Fashions</span>
+                </h1>
+                
+                <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Unveil your true radiance with personalized luxury salon services, HD bridal makeovers, and custom aesthetic styling. Available at our signature studio or at your doorstep.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-charcoal-950 font-bold text-base shadow-xl shadow-gold-500/20 hover:scale-105 transition-all flex items-center justify-center gap-2">
+                        <span>Book an Appointment</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                    <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-full border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-800 text-white font-semibold text-base transition-all text-center">
+                        Explore Services & Prices
+                    </a>
+                </div>
+
+                <!-- Trust Badges Bar -->
+                <div class="pt-8 border-t border-zinc-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-bold font-serif text-white">4.9 ★</div>
+                        <p class="text-xs text-zinc-400">500+ Happy Brides</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-bold font-serif text-white">100%</div>
+                        <p class="text-xs text-zinc-400">Derm-Safe Products</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-bold font-serif text-white">Zero</div>
+                        <p class="text-xs text-zinc-400">Hidden Charges</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Visual Card -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative rounded-3xl overflow-hidden border border-gold-500/30 shadow-2xl bg-charcoal-800">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1000&auto=format&fit=crop" alt="PSS Beauty Makeup & Hair Salon" class="w-full h-[460px] object-cover object-center filter brightness-90 hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent"></div>
+                    
+                    <!-- Floating Highlight Box -->
+                    <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-card border border-gold-500/20 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-full bg-blush-500/20 border border-blush-500/40 flex items-center justify-center text-blush-300">
+                                <i class="fa-solid fa-crown text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white text-sm sm:text-base">Signature Bridal HD Glam</h4>
+                                <p class="text-xs text-zinc-400">Customized look consultation included</p>
+                            </div>
+                        </div>
+                        <button onclick="quickBook('Signature Bridal HD Glam', 12000)" class="text-xs font-bold text-gold-400 underline underline-offset-4 hover:text-white">
+                            Select
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KEY DIFFERENTIATORS / WHY CHOOSE US -->
+    <section id="about" class="py-20 bg-charcoal-950 border-y border-zinc-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Why Choose PSS Beauty & Fashions</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Unmatched Quality & Luxury Experience</h2>
+                <p class="text-zinc-400 text-sm sm:text-base">We prioritize your individual skin health, comfort, and aesthetic preferences above all else.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="p-6 rounded-2xl glass-card glass-card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white">Certified Master Stylists</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Our artists and dermatologists undergo continuous international training in modern makeup & skin techniques.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 rounded-2xl glass-card glass-card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-blush-500/10 border border-blush-500/30 flex items-center justify-center text-blush-300 text-xl">
+                        <i class="fa-solid fa-pump-soap"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white">100% Derm-Safe Products</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">We exclusively use premium, hypoallergenic brands like MAC, Huda Beauty, NARS, and Charlotte Tilbury.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 rounded-2xl glass-card glass-card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white">In-Studio or Doorstep</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Enjoy our tranquil luxury salon studio or request our mobile glam squad right at your venue or residence.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 rounded-2xl glass-card glass-card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white">Transparent Pricing</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">No surprise addon costs. Custom transparent packages tailored to your budget with clear breakdown.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SERVICE CALCULATOR & PACKAGE CUSTOMIZER -->
+    <section id="calculator" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Interactive Package Customizer</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Build Your Beauty & Fashion Package</h2>
+                <p class="text-zinc-400 text-sm sm:text-base">Select your desired services to get an instant estimated duration and price. Apply 15% discount for your first booking!</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Service Picker Grid (Left Column) -->
+                <div class="lg:col-span-8 space-y-4">
+                    
+                    <!-- Service Categories Tabs -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button onclick="filterCalcCategory('all')" class="calc-cat-btn active bg-gold-400 text-charcoal-950 font-bold px-4 py-2 rounded-full text-xs transition-all">All Services</button>
+                        <button onclick="filterCalcCategory('bridal')" class="calc-cat-btn bg-zinc-800 text-zinc-300 hover:text-white font-medium px-4 py-2 rounded-full text-xs transition-all">Bridal & Special Events</button>
+                        <button onclick="filterCalcCategory('hair')" class="calc-cat-btn bg-zinc-800 text-zinc-300 hover:text-white font-medium px-4 py-2 rounded-full text-xs transition-all">Hair Care & Styling</button>
+                        <button onclick="filterCalcCategory('skin')" class="calc-cat-btn bg-zinc-800 text-zinc-300 hover:text-white font-medium px-4 py-2 rounded-full text-xs transition-all">Skin & Facials</button>
+                        <button onclick="filterCalcCategory('nails')" class="calc-cat-btn bg-zinc-800 text-zinc-300 hover:text-white font-medium px-4 py-2 rounded-full text-xs transition-all">Nails & Aesthetics</button>
+                    </div>
+
+                    <div id="serviceListContainer" class="space-y-3">
+                        <!-- Dynamic Service Items inserted by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Real-time Cost Breakdown Card (Right Column Sticky) -->
+                <div class="lg:col-span-4 sticky top-28">
+                    <div class="p-6 rounded-3xl glass-card border border-gold-500/30 space-y-6 shadow-2xl">
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <h3 class="font-serif font-bold text-xl text-white">Estimated Summary</h3>
+                            <span id="selectedCountBadge" class="bg-gold-400/20 text-gold-300 border border-gold-500/30 text-xs px-2.5 py-1 rounded-full font-bold">0 Selected</span>
+                        </div>
+
+                        <!-- Selected Items Display -->
+                        <div id="selectedServicesSummary" class="space-y-2 text-xs text-zinc-400 min-h-[100px] max-h-[220px] overflow-y-auto pr-1">
+                            <p class="text-zinc-500 italic text-center py-8">Select services on the left to build your custom beauty package.</p>
+                        </div>
+
+                        <!-- Duration & Subtotal -->
+                        <div class="space-y-2 pt-4 border-t border-zinc-800 text-sm">
+                            <div class="flex justify-between text-zinc-400">
+                                <span>Est. Duration:</span>
+                                <strong id="totalDurationText" class="text-white">0 mins</strong>
+                            </div>
+                            <div class="flex justify-between text-zinc-400">
+                                <span>Subtotal:</span>
+                                <span id="subtotalText" class="text-white">₹0</span>
+                            </div>
+                            
+                            <!-- Promo Code Toggle -->
+                            <div class="pt-2">
+                                <label class="flex items-center space-x-2 text-xs text-gold-300 cursor-pointer">
+                                    <input type="checkbox" id="promoCheckbox" onchange="updateCalculator()" class="rounded bg-zinc-800 border-zinc-700 text-gold-500 focus:ring-gold-400">
+                                    <span>Apply 15% First-Visit Discount (<strong>PSSGLAM15</strong>)</span>
+                                </label>
+                            </div>
+
+                            <div class="flex justify-between text-zinc-400 text-xs text-emerald-400" id="discountRow" style="display:none;">
+                                <span>15% Discount Applied:</span>
+                                <span id="discountText">-₹0</span>
+                            </div>
+
+                            <div class="flex justify-between text-lg font-bold text-white pt-2 border-t border-zinc-800">
+                                <span>Total Price:</span>
+                                <span id="totalPriceText" class="gold-gradient-text text-xl">₹0</span>
+                            </div>
+                        </div>
+
+                        <!-- Booking Button with Package Payload -->
+                        <button onclick="proceedWithCalculatedPackage()" id="bookCustomPackageBtn" disabled class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 disabled:opacity-40 disabled:cursor-not-allowed text-charcoal-950 font-bold text-sm shadow-lg shadow-gold-500/10 hover:scale-[1.02] transition-all">
+                            Book Custom Package
+                        </button>
+                        <p class="text-[11px] text-center text-zinc-500">No payment required now. Pay directly after your service.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOOKBOOK & PORTFOLIO GALLERY -->
+    <section id="lookbook" class="py-20 bg-charcoal-950 border-t border-zinc-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Inspiration & Artistry</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">Our Style Lookbook</h2>
+                </div>
+                <!-- Gallery Filter Tabs -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterGallery('all')" class="gallery-tab active text-xs font-bold px-4 py-2 rounded-full bg-gold-400 text-charcoal-950">All Looks</button>
+                    <button onclick="filterGallery('bridal')" class="gallery-tab text-xs font-bold px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 hover:text-white">Bridal</button>
+                    <button onclick="filterGallery('hair')" class="gallery-tab text-xs font-bold px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 hover:text-white">Hair & Spa</button>
+                    <button onclick="filterGallery('fashion')" class="gallery-tab text-xs font-bold px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 hover:text-white">Fashion Styling</button>
+                    <button onclick="filterGallery('nails')" class="gallery-tab text-xs font-bold px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 hover:text-white">Nails & Glam</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Items Inserted JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS & TESTIMONIALS -->
+    <section id="reviews" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Client Love</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Stories of Radiance</h2>
+                <p class="text-zinc-400 text-sm">Read what our brides and regular salon clients say about their PSS transformation.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="p-6 rounded-2xl glass-card space-y-4 border border-zinc-800">
+                    <div class="flex items-center space-x-1 text-gold-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm italic">"PSS Beauty made my wedding day absolutely magical! The HD bridal makeup lasted all night through sweat and emotions without feeling heavy. Highly recommended!"</p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-zinc-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Ananya" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Ananya Sharma</h4>
+                            <p class="text-xs text-zinc-500">Bridal Package Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="p-6 rounded-2xl glass-card space-y-4 border border-zinc-800">
+                    <div class="flex items-center space-x-1 text-gold-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm italic">"The keratin hair spa and customized fashion styling advice were top-tier. Extremely professional staff and completely transparent pricing."</p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-zinc-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop" alt="Priya" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Priya R.</h4>
+                            <p class="text-xs text-zinc-500">Regular Salon Visitor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="p-6 rounded-2xl glass-card space-y-4 border border-zinc-800">
+                    <div class="flex items-center space-x-1 text-gold-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm italic">"Having the PSS mobile salon team come right to my hotel suite before my reception saved me hours of travel stress. Flawless experience!"</p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-zinc-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Sneha" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Sneha & Rahul</h4>
+                            <p class="text-xs text-zinc-500">At-Home Service Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION HUB -->
+    <section id="contact" class="py-20 bg-charcoal-950 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info & Quick Reach -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Get In Touch</span>
+                        <h2 class="font-serif text-3xl font-bold text-white mt-1">Visit or Reach Us</h2>
+                        <p class="text-zinc-400 text-sm mt-2">Have questions about our bridal packages, customized fashion tailoring, or home services? We are here to help!</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold">Studio Address</h4>
+                                <p class="text-zinc-400 text-xs mt-0.5">PSS Luxury Studio, Luxury Avenue, Road No. 36, Jubilee Hills, Hyderabad / Vijayawada</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold">Phone & Helpline</h4>
+                                <p class="text-zinc-400 text-xs mt-0.5">+91 98765 43210 / +91 91234 56789</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold">Working Hours</h4>
+                                <p class="text-zinc-400 text-xs mt-0.5">Monday - Sunday: 9:00 AM - 8:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Chat CTA Card -->
+                    <div class="p-6 rounded-2xl bg-gradient-to-r from-emerald-950/40 to-charcoal-900 border border-emerald-500/30 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Need Instant Assistance?</h4>
+                            <p class="text-xs text-zinc-400">Chat directly with our lead beautician on WhatsApp</p>
+                        </div>
+                        <a href="https://wa.me/919876543210?text=Hi%20PSS%20Beauty%2C%20I%20have%20a%20quick%20question!" target="_blank" class="px-4 py-2 rounded-xl bg-emerald-500 text-charcoal-950 font-bold text-xs hover:bg-emerald-400 transition-all flex items-center gap-1.5 shrink-0">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact / Query Form -->
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleInquirySubmit(event)" class="p-8 rounded-3xl glass-card space-y-4 border border-zinc-800">
+                        <h3 class="font-serif font-bold text-xl text-white">Send Us a Direct Message</h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-zinc-400 mb-1">Your Full Name</label>
+                                <input type="text" required placeholder="e.g. Radhika Sharma" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-zinc-400 mb-1">Phone Number</label>
+                                <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-zinc-400 mb-1">Service Interested In</label>
+                            <select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400">
+                                <option>Bridal HD Makeup & Hair Styling</option>
+                                <option>Hair Spa & Keratin Treatment</option>
+                                <option>Radiance Facial & Skin Care</option>
+                                <option>Nail Extensions & Art</option>
+                                <option>Bespoke Fashion & Wardrobe Styling</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-zinc-400 mb-1">Your Message or Event Date</label>
+                            <textarea rows="4" placeholder="Tell us about your event requirements or preferred booking date..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 text-charcoal-950 font-bold text-sm hover:scale-[1.01] transition-all">
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal-950 py-12 border-t border-zinc-800 text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-gold-400 flex items-center justify-center font-serif font-bold text-charcoal-950">PSS</div>
+                <span class="text-zinc-300 font-serif font-bold text-base">PSS Beauty & Fashions</span>
+            </div>
+            
+            <p>© 2026 PSS Beauty and Fashions. All rights reserved. Premium Salon & Style Destination.</p>
+            
+            <div class="flex space-x-4 text-zinc-400 text-base">
+                <a href="#" class="hover:text-gold-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-gold-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-gold-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-gold-400 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BOOKING MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-charcoal-900 border border-gold-500/30 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6">
+            
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div>
+                <span class="text-gold-400 text-xs font-mono uppercase tracking-widest">Reserve Your Slot</span>
+                <h3 class="font-serif font-bold text-2xl text-white mt-1">Book Your Appointment</h3>
+            </div>
+
+            <form id="modalBookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-zinc-400 mb-1">Full Name *</label>
+                    <input type="text" id="bookName" required placeholder="Enter your full name" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Phone Number *</label>
+                        <input type="tel" id="bookPhone" required placeholder="+91 98765 43210" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Location Preference</label>
+                        <select id="bookLocation" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                            <option value="In-Studio">In-Studio Visit</option>
+                            <option value="At-Home Doorstep">At-Home Service</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Preferred Date *</label>
+                        <input type="date" id="bookDate" required class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Preferred Time Slot *</label>
+                        <select id="bookTime" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                            <option>10:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>02:30 PM</option>
+                            <option>05:00 PM</option>
+                            <option>07:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-zinc-400 mb-1">Selected Package / Services Summary</label>
+                    <textarea id="bookServiceSummary" readonly rows="2" class="w-full bg-zinc-950/60 border border-zinc-800 text-gold-300 font-mono text-xs rounded-xl px-4 py-2.5 resize-none">General Consultation</textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 text-charcoal-950 font-bold text-sm shadow-lg shadow-gold-500/20 hover:scale-[1.01] transition-all">
+                    Confirm Appointment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- BOOKING SUCCESS CONFIRMATION MODAL -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-charcoal-900 border border-emerald-500/40 rounded-3xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl">
+            <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center text-emerald-400 text-3xl mx-auto">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif font-bold text-2xl text-white">Booking Requested!</h3>
+            <p class="text-zinc-300 text-sm leading-relaxed" id="successMessageDetails">Thank you for choosing PSS Beauty & Fashions! Our lead beauty coordinator will contact you shortly to confirm your time slot.</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 rounded-xl bg-emerald-500 text-charcoal-950 font-bold text-sm hover:bg-emerald-400 transition-all">
+                Done
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. DATA: Beauty Services List
+        const servicesData = [
+            { id: 1, name: "Signature HD Bridal Makeup", price: 12000, duration: 150, category: "bridal", desc: "Airbrush/HD makeup, customized lash extensions, hair styling & saree draping." },
+            { id: 2, name: "Pre-Bridal Radiance Glow Package", price: 8500, duration: 120, category: "bridal", desc: "Gold facial, full body polish, hair spa, threading, and gel manicures." },
+            { id: 3, name: "Keratin & Botanical Hair Spa", price: 2500, duration: 60, category: "hair", desc: "Deep nourishment, frizz repair, scalpal massage, and blow-dry styling." },
+            { id: 4, name: "Trendy Hair Cut & Global Highlights", price: 4200, duration: 90, category: "hair", desc: "Styling consultation, precision haircut, and custom shade highlights." },
+            { id: 5, name: "Derm-Approved Radiance Facial", price: 2200, duration: 50, category: "skin", desc: "Deep cleansing, gentle exfoliation, LED rejuvenation mask & face massage." },
+            { id: 6, name: "Nail Extensions & Custom Art", price: 1800, duration: 45, category: "nails", desc: "Acrylic/gel nail extensions with customized nail art design." },
+            { id: 7, name: "Bespoke Fashion & Outfit Styling", price: 3500, duration: 60, category: "fashion", desc: "1-on-1 wardrobe consultation, jewelry pairing, and draping styling." }
+        ];
+
+        // 2. DATA: Lookbook Items
+        const lookbookData = [
+            { id: 1, title: "Royal HD Bridal Look", category: "bridal", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop" },
+            { id: 2, title: "Silk Glow Hair Spa & Waves", category: "hair", img: "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=600&auto=format&fit=crop" },
+            { id: 3, title: "Pastel Engagement Glam", category: "bridal", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" },
+            { id: 4, title: "Luxury Nail Extension Art", category: "nails", img: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop" },
+            { id: 5, title: "Bespoke Draping & Wardrobe", category: "fashion", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" },
+            { id: 6, title: "Radiance Facial Glow", category: "hair", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" }
+        ];
+
+        // State variables
+        let selectedServiceIds = new Set();
+        let currentCalcFilter = 'all';
+
+        // Initial setup on Window Load
+        window.onload = function() {
+            renderServicesList();
+            renderLookbook('all');
+            
+            // Set min date for booking datepicker to today
+            const dateInput = document.getElementById('bookDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        };
+
+        // Render Service List for Calculator
+        function renderServicesList() {
+            const container = document.getElementById('serviceListContainer');
+            container.innerHTML = '';
+
+            const filtered = currentCalcFilter === 'all' 
+                ? servicesData 
+                : servicesData.filter(s => s.category === currentCalcFilter);
+
+            filtered.forEach(service => {
+                const isSelected = selectedServiceIds.has(service.id);
+                const itemEl = document.createElement('div');
+                itemEl.className = `p-4 rounded-2xl glass-card cursor-pointer border transition-all flex items-center justify-between ${isSelected ? 'border-gold-400 bg-gold-500/10' : 'border-zinc-800 hover:border-zinc-700'}`;
+                itemEl.onclick = () => toggleServiceSelection(service.id);
+
+                itemEl.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" ${isSelected ? 'checked' : ''} class="mt-1 rounded bg-zinc-800 border-zinc-700 text-gold-500 focus:ring-gold-400">
+                        <div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">${service.name}</h4>
+                            <p class="text-xs text-zinc-400 mt-0.5">${service.desc}</p>
+                            <span class="inline-block mt-2 text-[11px] font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded">
+                                <i class="fa-regular fa-clock text-gold-400 mr-1"></i>${service.duration} mins
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-right shrink-0 pl-3">
+                        <span class="font-serif font-bold text-white text-base sm:text-lg">₹${service.price.toLocaleString('en-IN')}</span>
+                    </div>
+                `;
+                container.appendChild(itemEl);
+            });
+        }
+
+        // Filter Category Handler for Calculator
+        function filterCalcCategory(cat) {
+            currentCalcFilter = cat;
+            document.querySelectorAll('.calc-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-gold-400', 'text-charcoal-950');
+                btn.classList.add('bg-zinc-800', 'text-zinc-300');
+            });
+            event.target.classList.remove('bg-zinc-800', 'text-zinc-300');
+            event.target.classList.add('bg-gold-400', 'text-charcoal-950');
+            renderServicesList();
+        }
+
+        // Toggle Service Checkbox
+        function toggleServiceSelection(id) {
+            if (selectedServiceIds.has(id)) {
+                selectedServiceIds.delete(id);
+            } else {
+                selectedServiceIds.add(id);
+            }
+            renderServicesList();
+            updateCalculator();
+        }
+
+        // Update Calculator Output Calculations
+        function updateCalculator() {
+            const summaryContainer = document.getElementById('selectedServicesSummary');
+            const selectedList = servicesData.filter(s => selectedServiceIds.has(s.id));
+            
+            // Badge & Btn status
+            document.getElementById('selectedCountBadge').innerText = `${selectedList.length} Selected`;
+            const bookBtn = document.getElementById('bookCustomPackageBtn');
+            
+            if (selectedList.length === 0) {
+                summaryContainer.innerHTML = `<p class="text-zinc-500 italic text-center py-8">Select services on the left to build your custom beauty package.</p>`;
+                document.getElementById('totalDurationText').innerText = `0 mins`;
+                document.getElementById('subtotalText').innerText = `₹0`;
+                document.getElementById('discountRow').style.display = 'none';
+                document.getElementById('totalPriceText').innerText = `₹0`;
+                bookBtn.disabled = true;
+                return;
+            }
+
+            bookBtn.disabled = false;
+            summaryContainer.innerHTML = '';
+            let subtotal = 0;
+            let totalDuration = 0;
+
+            selectedList.forEach(item => {
+                subtotal += item.price;
+                totalDuration += item.duration;
+
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center py-1 border-b border-zinc-800/50';
+                row.innerHTML = `
+                    <span class="text-zinc-300 truncate pr-2">${item.name}</span>
+                    <span class="text-white font-semibold shrink-0">₹${item.price.toLocaleString('en-IN')}</span>
+                `;
+                summaryContainer.appendChild(row);
+            });
+
+            // Discount calculation
+            const promoChecked = document.getElementById('promoCheckbox').checked;
+            let discountAmount = promoChecked ? Math.round(subtotal * 0.15) : 0;
+            let finalTotal = subtotal - discountAmount;
+
+            document.getElementById('totalDurationText').innerText = `${totalDuration} mins (~${(totalDuration/60).toFixed(1)} hrs)`;
+            document.getElementById('subtotalText').innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+            
+            if (promoChecked) {
+                document.getElementById('discountRow').style.display = 'flex';
+                document.getElementById('discountText').innerText = `-₹${discountAmount.toLocaleString('en-IN')}`;
+            } else {
+                document.getElementById('discountRow').style.display = 'none';
+            }
+
+            document.getElementById('totalPriceText').innerText = `₹${finalTotal.toLocaleString('en-IN')}`;
+        }
+
+        // Render Lookbook Gallery
+        function renderLookbook(filter) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            const items = filter === 'all' ? lookbookData : lookbookData.filter(i => i.category === filter);
+
+            items.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'group relative rounded-2xl overflow-hidden glass-card border border-zinc-800 h-72 cursor-pointer';
+                el.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                        <div>
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-gold-400">${item.category}</span>
+                            <h4 class="font-serif font-bold text-white text-lg">${item.title}</h4>
+                        </div>
+                        <button onclick="quickBook('${item.title}', 5000)" class="w-8 h-8 rounded-full bg-gold-400 text-charcoal-950 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        function filterGallery(cat) {
+            document.querySelectorAll('.gallery-tab').forEach(btn => {
+                btn.classList.remove('bg-gold-400', 'text-charcoal-950');
+                btn.classList.add('bg-zinc-800', 'text-zinc-300');
+            });
+            event.target.classList.remove('bg-zinc-800', 'text-zinc-300');
+            event.target.classList.add('bg-gold-400', 'text-charcoal-950');
+            renderLookbook(cat);
+        }
+
+        // Quick book button from visual cards
+        function quickBook(title, price) {
+            document.getElementById('bookServiceSummary').value = `${title} (Est. ₹${price.toLocaleString('en-IN')})`;
+            openBookingModal();
+        }
+
+        // Proceed from Service Calculator to Booking Modal
+        function proceedWithCalculatedPackage() {
+            const selectedList = servicesData.filter(s => selectedServiceIds.has(s.id));
+            const promoChecked = document.getElementById('promoCheckbox').checked;
+            const subtotal = selectedList.reduce((acc, curr) => acc + curr.price, 0);
+            const discount = promoChecked ? Math.round(subtotal * 0.15) : 0;
+            const final = subtotal - discount;
+
+            const summaryText = selectedList.map(s => s.name).join(', ') + ` | Total: ₹${final.toLocaleString('en-IN')} (${promoChecked ? '15% Off Applied' : 'Standard'})`;
+            
+            document.getElementById('bookServiceSummary').value = summaryText;
+            openBookingModal();
+        }
+
+        // Modal Controllers
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form Submission Handlers
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('bookName').value;
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+
+            closeBookingModal();
+            
+            document.getElementById('successMessageDetails').innerHTML = `
+                Dear <strong>${name}</strong>, your request for <strong>${date} at ${time}</strong> has been logged! Our team will send a WhatsApp confirmation shortly.
+            `;
+            document.getElementById('successModal').classList.remove('hidden');
+            
+            // Reset modal inputs
+            document.getElementById('modalBookingForm').reset();
+        }
+
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            document.getElementById('successMessageDetails').innerHTML = `
+                Thank you for your message! Our styling consultant will respond via phone/email within 2 hours.
+            `;
+            document.getElementById('successModal').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
